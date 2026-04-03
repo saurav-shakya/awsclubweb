@@ -53,4 +53,5 @@ Contributions are welcome! Please open an issue or submit a pull request if you'
 ## 👨‍💻 Contributors
 
 - **Saurav Singh** - https://github.com/saurav-shakya
-- **Aryan Anand** → https://github.com/AryanAnand-25raj
+- **Aryan Anand** - https://github.com/AryanAnand-25raj
+- **Ansh**        - https://github.com/Ansh-Saraswat-PC
