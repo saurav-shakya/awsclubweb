@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -9,33 +11,47 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = 'primary', size = 'md', href, className = '', ...props }, ref) => {
-    const baseStyles = 'font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
+    const baseStyles = 'font-bold rounded-xl transition-all duration-300 focus:outline-none relative overflow-hidden group font-mono tracking-wide uppercase';
 
     const variantStyles = {
-      primary: 'bg-aws-orange text-aws-navy hover:bg-yellow-500 focus:ring-aws-orange',
-      secondary: 'bg-gray-700 text-white hover:bg-gray-600 focus:ring-gray-500',
-      outline: 'border-2 border-aws-orange text-aws-orange hover:bg-aws-orange hover:text-aws-navy focus:ring-aws-orange',
+      primary: 'bg-gradient-to-r from-aws-orange to-yellow-500 text-black hover:from-yellow-500 hover:to-aws-orange shadow-lg hover:shadow-aws-orange/50 neon-border',
+      secondary: 'glass-effect text-white hover:bg-white/10 border border-white/20',
+      outline: 'border-2 border-aws-orange text-aws-orange hover:bg-aws-orange/10 hover:shadow-lg hover:shadow-aws-orange/30',
     };
 
     const sizeStyles = {
-      sm: 'px-4 py-2 text-sm',
-      md: 'px-6 py-3 text-base',
-      lg: 'px-8 py-4 text-lg',
+      sm: 'px-5 py-2.5 text-xs',
+      md: 'px-8 py-3.5 text-sm',
+      lg: 'px-10 py-4 text-base',
     };
 
     const combinedClass = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
 
+    const ButtonContent = () => (
+      <>
+        {variant === 'primary' && (
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
+        )}
+        <span className="relative z-10">{props.children}</span>
+      </>
+    );
+
     if (href) {
       return (
-        <a href={href} className={`inline-block ${combinedClass}`} target="_blank" rel="noopener noreferrer">
-          {props.children}
+        <a
+          href={href}
+          className={`inline-flex items-center justify-center ${combinedClass}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <ButtonContent />
         </a>
       );
     }
 
     return (
       <button ref={ref} className={combinedClass} {...props}>
-        {props.children}
+        <ButtonContent />
       </button>
     );
   }

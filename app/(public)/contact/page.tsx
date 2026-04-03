@@ -91,8 +91,8 @@ export default function Contact() {
                 <div>
                   <h4 className="text-lg font-semibold text-aws-orange mb-4">Location</h4>
                   <p className="text-gray-300 mb-4">
-                    Goa College of Engineering and Technology<br />
-                    Farmagudi, Ponda, Goa 403401, India
+                    College of Engineering and Technology<br />
+                    Greater Noida,UP, India
                   </p>
                   <div className="w-full h-64 bg-gray-800 rounded-lg border border-gray-700 flex items-center justify-center">
                     <p className="text-gray-400">Map embed coming soon</p>

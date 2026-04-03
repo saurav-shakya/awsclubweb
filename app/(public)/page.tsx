@@ -6,7 +6,7 @@ import { Footer } from '@/components/layout/Footer';
 
 export const metadata = {
   title: 'AWS Cloud Club GCET',
-  description: 'AWS Cloud Club at Goa College of Engineering and Technology',
+  description: 'AWS Cloud Club at  College of Engineering and Technology',
 };
 
 const featuredEvent = {
