@@ -49,3 +49,8 @@ The application development server runs on port `3001` by default.
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request if you'd like to add features or fix bugs.
+
+## 👨‍💻 Contributors
+
+- **Saurav Singh** - https://github.com/saurav-shakya
+- **Aryan Anand** → https://github.com/AryanAnand-25raj
