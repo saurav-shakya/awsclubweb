@@ -1,0 +1,5 @@
+
+> aws-cloud-club-gcet@1.0.0 dev
+> next dev -p 3001
+
+You are using Node.js 18.19.1. For Next.js, Node.js version ">=20.9.0" is required.

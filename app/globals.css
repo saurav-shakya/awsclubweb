@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --aws-orange: #FF9900;
+  --aws-navy: #232F3E;
+  --aws-light-gray: #EAEDED;
+  --aws-dark-gray: #16191F;
+}
+
+@layer base {
+  body {
+    @apply bg-aws-navy text-white;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-aws-orange to-yellow-500 bg-clip-text text-transparent;
+  }
+
+  .glass-effect {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 20px rgba(255, 153, 0, 0.3);
+  }
+
+  .glow-orange-lg {
+    box-shadow: 0 0 40px rgba(255, 153, 0, 0.4);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--aws-dark-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--aws-orange);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF9900CC;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--aws-orange);
+  color: var(--aws-navy);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--aws-orange);
+  outline-offset: 2px;
+}
