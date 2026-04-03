@@ -1,0 +1,2 @@
+// lib/supabase-client.ts
+// 
