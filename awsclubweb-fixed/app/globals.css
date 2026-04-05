@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --aws-orange: #FF9900;
+  --aws-navy: #232F3E;
+  --cyber-blue: #00D9FF;
+  --neon-purple: #B026FF;
+  --grid-line: rgba(255, 153, 0, 0.2);
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white;
+    font-family: 'JetBrains Mono', monospace;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-4xl md:text-6xl lg:text-7xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-5xl lg:text-6xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-aws-orange via-cyber-blue to-neon-purple bg-clip-text text-transparent;
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-card {
+    background: linear-gradient(135deg, rgba(255, 153, 0, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 153, 0, 0.2);
+    box-shadow:
+      0 8px 32px 0 rgba(0, 0, 0, 0.37),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .neon-border {
+    border: 2px solid var(--aws-orange);
+    box-shadow:
+      0 0 10px rgba(255, 153, 0, 0.5),
+      inset 0 0 10px rgba(255, 153, 0, 0.2);
+  }
+
+  .cyber-grid {
+    background-image:
+      linear-gradient(rgba(255, 153, 0, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 153, 0, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center center;
+  }
+
+  .glow-text {
+    text-shadow:
+      0 0 10px rgba(255, 153, 0, 0.8),
+      0 0 20px rgba(255, 153, 0, 0.6),
+      0 0 30px rgba(255, 153, 0, 0.4);
+  }
+
+  .perspective-card {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .perspective-card:hover {
+    transform: rotateX(2deg) rotateY(-5deg) translateZ(20px);
+  }
+}
+
+/* Animated grid background */
+@keyframes gridPulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.animated-grid {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 153, 0, 0.15) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 153, 0, 0.15) 2px, transparent 2px);
+  background-size: 60px 60px;
+  animation: gridPulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Floating particles */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-10px);
+  }
+  75% {
+    transform: translateY(-30px) translateX(5px);
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--aws-orange);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: float 8s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 153, 0, 0.8);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+  border-left: 1px solid rgba(255, 153, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--aws-orange) 0%, var(--cyber-blue) 100%);
+  border-radius: 10px;
+  border: 2px solid #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--cyber-blue) 0%, var(--neon-purple) 100%);
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--aws-orange);
+  color: #000000;
+  text-shadow: none;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--aws-orange);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px rgba(255, 153, 0, 0.2);
+}
+
+/* Scan line effect */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.scanline-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline-effect::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    transparent 0%,
+    rgba(255, 153, 0, 0.03) 50%,
+    transparent 100%
+  );
+  height: 100px;
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
