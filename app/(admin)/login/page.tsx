@@ -11,14 +11,13 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
-
   const handleLogin = () => {
     setError(null);
     startTransition(async () => {
+      const supabase = createBrowserClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+      );
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) { setError(error.message); return; }
       router.push('/admin');
