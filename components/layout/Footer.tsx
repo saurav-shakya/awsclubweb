@@ -1,21 +1,18 @@
 import Link from 'next/link';
-import { Github, Linkedin, Instagram, Twitter, Mail } from 'lucide-react';
+import { Linkedin, Instagram, Mail } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
     { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
+    { icon: Instagram, href: 'https://www.instagram.com/awscloudcommunity_gcet/', label: 'Instagram' },
   ];
 
   const quickLinks = [
     { label: 'About', href: '/about' },
     { label: 'Events', href: '/events' },
     { label: 'Contact', href: '/contact' },
-    { label: 'Admin', href: '/admin/login' },
   ];
 
   return (

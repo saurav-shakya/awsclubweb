@@ -60,13 +60,7 @@ export const Navbar: React.FC = () => {
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-aws-orange to-cyber-blue group-hover:w-full transition-all duration-300" />
               </Link>
             ))}
-            <div className="ml-4 w-px h-6 bg-white/10" />
-            <Link
-              href="/admin/login"
-              className="ml-4 px-5 py-2 text-sm font-mono text-aws-orange border border-aws-orange/30 rounded-lg hover:bg-aws-orange/10 transition-all duration-300"
-            >
-              Admin
-            </Link>
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -94,14 +88,7 @@ export const Navbar: React.FC = () => {
                   {link.label}
                 </Link>
               ))}
-              <div className="my-2 h-px bg-white/10" />
-              <Link
-                href="/admin/login"
-                className="block px-4 py-3 text-sm font-mono text-aws-orange hover:bg-aws-orange/10 rounded-lg transition-all"
-                onClick={() => setIsOpen(false)}
-              >
-                Admin Login
-              </Link>
+
             </div>
           </div>
         )}
